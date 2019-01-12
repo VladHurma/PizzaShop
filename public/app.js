@@ -1,3 +1,10 @@
 function something() {
-  alert ('I am alive!');
+
+  var x = window.localStorage.getItem('aaa');
+
+  x = x + 1;
+
+  window.localStorage.setItem('aaa', x);
+
+  alert (x);
 }
