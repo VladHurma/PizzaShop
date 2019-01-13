@@ -8,3 +8,7 @@ function something() {
 
   alert (x);
 }
+
+function add_to_cart() {
+  alert('Successfuly added to cart')
+}
