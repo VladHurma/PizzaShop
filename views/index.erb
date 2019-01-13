@@ -1,23 +1,32 @@
 <h1>Hello in our Pizza Shop!</h1>
 
 <div class="container">
-  <div class="row" style="height: 150px;">
+  <div class="row">
     <% @products.each do |product| %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <p style="text-align: center; font-size: 2em;">
+
+        <div style="text-align: center; font-size: 2em;">
           <strong>
             <%= product.title %>
           </strong>
-        </p>
-        <p>
+        </div>
+
+        <div>
           <img style="height: 150px; width: 250px;" src="<%= product.path_to_image %>">
-        </p>
-        <p style="color: #999;">
+        </div>
+
+        <div style="color: #999;">
           <%= product.description %>
-        </p>
-        <p>
+        </div>
+
+        <div>
+          Size: <%= product.size %> cm
+        </div>
+
+        <div>
           Price: <%= product.price %> BYN
-        </p>
+        </div>
+
       </div>
     <% end %>
   </div>
