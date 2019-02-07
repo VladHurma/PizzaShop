@@ -5,14 +5,14 @@ function add_to_cart(id) {
   x = x * 1 + 1;
   window.localStorage.setItem(key, x);
 
-  alert('Items in your cart: ' + amount_of_products_in_cart());
+  update_cart_input();
 }
 
 function amount_of_products_in_cart() {
 
   var total = 0;
 
-  for(var i = 0; i < window.localStorage.length; i++) {
+  for (var i = 0; i < window.localStorage.length; i++) {
 
     var key = window.localStorage.key(i);
 
@@ -23,4 +23,32 @@ function amount_of_products_in_cart() {
   }
 
   return total;
+}
+
+function get_cart_orders() {
+
+  var orders = '';
+
+  for (var i = 0; i < window.localStorage.length; i++) {
+
+    var key = window.localStorage.key(i);
+    var value = window.localStorage.getItem(key);
+
+    if (key.indexOf('product_') == 0) {
+      orders = orders + key + '=' + value + ',';
+    }
+
+  }
+
+  return orders;
+}
+
+function update_cart_input() {
+  var orders = get_cart_orders();
+  $('#orders_input').val(orders);
+}
+
+function update_orders_button() {
+  var text = 'Cart(' + amount_of_products_in_cart() + ' items)';
+  $('#orders_button').val(text);
 }
